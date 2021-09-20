@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link rel="stylesheet" type="text/css" href="style.css">
+  
+  <title>Frontend Mentor | Tip calculator app</title>
+
+</head>
+<body>
+
+	<div id="box">
+
+		<header>
+			<img src="images/logo.svg" alt="logo">
+		</header>
+
+		<section id="box-bill">
+			<div id="form-bill">
+				<div id="propina">
+					<label>Bill</label>
+					<br>
+					<img src="images/icon-dollar.svg" alt="dollar">
+					<input type="number" class="info" id="bill" placeholder="0">
+				</div>
+				<div id="porcentaje">
+					<label>Select Tip %</label><br>
+					<div id="tip">
+					<button value="5" class="opciones">5%</button>
+					<button value="10" class="opciones">10%</button>
+					<button value="15" class="opciones">15%</button>
+					<button value="25" class="opciones">25%</button>
+					<button value="50" class="opciones">50%</button>
+					<input type="number" class="info" id="custom" placeholder="Custom">
+					</div>
+				</div>
+				<br>
+				<div id="personas">
+					<div><label>Number of People</label>
+					<p id="error">Can't be zero</p>
+					</div>
+					<img src="images/icon-person.svg" alt="person">
+					<input type="number" class="info" id="person" placeholder="0">
+				</div>
+			</div>
+			<div id="bill-resul">
+				<div id="result-group">
+					<div id="amount">
+						<div id="tip-person">
+							<p class="parrafo">Tip Amount</p>
+							<p class="barra">/ person</p>
+						</div>
+						<p id="amount-person">$0.00</p>
+					</div>
+					<div id="total">
+						<div id="total-person">
+							<p class="parrafo">Total</p>
+							<p class="barra">/ person</p>
+						</div>
+						<p id="total-resul">$0.00</p>
+					</div>
+				</div>
+				<button id="reset" disabled>RESET</button>
+			</div>			
+		</section>
+	</div>
+
+<script type="text/javascript" src="main.js"></script>
+</body>
+</html>

@@ -1,0 +1,240 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap');
+
+* {
+
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+
+:root {
+
+	--strong-cyan: hsl(172, 67%, 45%);
+	--very-d-cyan: hsl(183, 100%, 15%);
+	--dark-gray-cyan: hsl(186, 14%, 43%);
+	--dark-gray-cyan-2: hsl(184, 14%, 56%);
+	--light-gray-cyan: hsl(185, 41%, 84%);
+	--light-gray-cyan-2: hsl(189, 41%, 97%);
+	--white: hsl(0, 0%, 100%);
+}
+
+body {
+
+	background: var(--light-gray-cyan);
+	font-family: "Space Mono", sans-serif;
+}
+
+#box {
+
+	display: grid;
+	place-items: center;
+	margin-top: 15%;
+}
+
+#box-bill {
+
+	margin-top: 10%;
+	background: var(--white);
+	border-radius: 20px 20px 0 0;
+	padding: 10%;
+	color: var(--dark-gray-cyan);
+	font-weight: 700;
+	display: grid;
+	grid-template-columns: repeat(1, 1fr);
+}
+
+
+#form-bill img {
+
+	position: relative;
+	top: 2.5rem;
+	left: 1rem;
+	width: 14px;
+}
+
+#form-bill input[type=number] {
+
+	width: 100%;
+	text-align: right;
+	outline: none;
+	border:none;
+	background: var(--light-gray-cyan-2);
+	padding: 2.5% 5% 2.5% 15%;
+	border-radius: 5px;
+	font-weight: 700;
+	font-size: 22px;
+	color: var(--very-d-cyan);
+	border: 3px solid transparent;
+	transition: 0.1s ease-in-out;
+}
+
+#form-bill input[type=number]:hover {
+
+	border: 3px solid var(--strong-cyan);
+	transition: 0.1s ease-in-out;
+}
+
+#form-bill input[type=number]:focus {
+
+	border: 3px solid var(--strong-cyan);
+}
+
+#tip {
+
+	margin-top: 10%;
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	grid-gap: 13px;
+}
+
+#tip button {
+
+	border: none;
+	background: var(--very-d-cyan);
+	color: var(--light-gray-cyan-2);
+	padding: 8% 0;
+	border-radius: 6px;
+	font-weight: 700;
+	font-size: 20px;
+	font-family: "Space Mono", sans-serif;
+	transition: 0.1s ease-in-out;
+}
+
+#tip button:hover {
+
+	background: hsl(172, 75%, 65%);
+	color: var(--very-d-cyan);
+	cursor: pointer;
+	transition: 0.1s ease-in-out;
+}
+
+button.pulso {
+
+	background: var(--strong-cyan);
+	color: var(--very-d-cyan);
+}
+
+#personas div {
+
+	display: flex;
+	justify-content: space-between;
+	margin-top: 5%;
+}
+
+#form-bill p {
+
+	color: red;
+	display: none;
+}
+
+
+#bill-resul {
+
+	background: var(--very-d-cyan);
+	margin-top: 10%;
+	border-radius: 10px;
+	padding: 12% 7% 8% 7%;
+
+}
+
+#bill-resul #amount, #bill-resul #total {
+
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	grid-gap: 0 28%; 
+	margin-bottom: 7%;
+}
+
+#bill-resul .parrafo {
+
+	color: var(--light-gray-cyan-2);
+}
+
+#bill-resul .barra {
+
+	color: var(--dark-gray-cyan-2);
+	font-size: 14px;
+}
+
+#bill-resul #amount-person, #bill-resul #total-resul {
+
+	font-size: 35px;
+	color: var(--strong-cyan);
+}
+
+#bill-resul button {
+
+	outline: none;
+	border: none;
+	width: 100%;
+	padding: 4%;
+	background: var(--strong-cyan);
+	color: var(--very-d-cyan);
+	font-family: "Space Mono", sans-serif;
+	font-size: 20px;
+	font-weight: 700;
+	border-radius: 8px;
+	margin-top: 5%;
+	opacity: 0.2;
+}
+
+
+
+@media screen and (min-width: 650px) {
+
+	body {
+
+		margin-bottom: 15%;
+	}
+
+	#box-bill {
+
+		grid-template-columns: repeat(2, 1fr);
+		grid-gap: 0 30px;
+		width: 75%;
+		padding: 3%;
+		margin-top: 5%;
+		border-radius: 20px;
+
+	}
+
+
+	#tip {
+
+		grid-template-columns: repeat(3, 1fr);
+		margin-top: 5%;
+	}
+
+	#form-bill #bill, #person {
+
+		margin-bottom: 8%;
+	}
+
+	#form-bill #custom {
+
+		font-size: 14px;
+	}
+
+	#bill-resul {
+
+	margin-top: 0;
+	display: grid;
+
+	}
+
+	#bill-resul button {
+
+	margin-top: 0;
+	align-self: flex-end;
+
+	}
+
+
+	#bill-resul #amount, #bill-resul #total {
+
+	grid-gap: 5%; 
+
+	}
+
+}
