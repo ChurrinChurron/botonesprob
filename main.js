@@ -1,4 +1,4 @@
-let opcionesPropina = document.querySelectorAll("opciones");
+let opcionesPropina = document.querySelectorAll(".opciones");
 let custom = document.getElementById("custom");
 let resetBoton = document.getElementById("reset");
 let factura = document.getElementById("bill");
@@ -6,7 +6,53 @@ let personas = document.getElementById("person");
 let cuentaPersona = document.getElementById("amount-person");
 let resultado = document.getElementById("total-resul");
 let inputFacPer = document.querySelectorAll(".info");
-let numeroOpcionesPropina = 0;
+let num = 0;
+
+
+
+// lo de los botones :/
+const nunu = () => {
+
+	opcionesPropina.forEach(n => {
+
+		n.addEventListener("click", e => {
+
+			num = e.target.value;
+		})
+	})
+
+}
+
+	let result = () => {
+
+
+		var resultadoPropina = parseFloat(factura.value*(num/100)/Math.round(personas.value));
+		var resultadoTotal = parseFloat(Math.round(resultadoPropina+factura.value));
+
+		cuentaPersona.innerHTML = `$${resultadoPropina.toFixed(2)}`;
+		resultado.innerHTML = `$${resultadoTotal.toFixed(2)}`;
+	}
+ 
+
+	/*for(i=0;i<opcionesPropina.length;i++) {
+
+		opcionesPropina[i].addEventListener("click", () => {
+
+			switch(opcionesPropina) {
+
+				case opcionesPropina[0]:
+
+				num = 5
+				console.log(num);
+				break;
+
+				default:
+				console.log("nada");
+				//mas codigo 
+			}
+		})
+	}*/
+
 
 
 //función de los inputs de factura y personas
@@ -17,36 +63,16 @@ inputFacPer[i].addEventListener("input", () => {
 if(personas.value > 0 && bill.value > 0) {
 
 
-	const f = parseInt(factura.value);
-	const p = parseInt(personas.value);
-	cuentaPersona.innerHTML = `$${f}`;
-	//la suma de ellos no va, solo es un ejemplo para ver si mostraba.
-	const resul = f+p;
-	resultado.innerHTML = `$${resul}`;
+	result();
+	nunu();
 	enabBotonReset();
+
+		}
+
+	})
+
 }
 
-})
-
-}
-
-// lo de los botones :/
-const nunu = () => {
-
-	for(i=0;i<opcionesPropina.length;i++) {
-
-		opcionesPropina[i].addEventListener("click", () => {
-
-			switch(opcionesPropina[i]) {
-
-				case opcionesPropina[0]:
-
-				numeroOpcionesPropina = 5;
-				//mas codigo 
-			}
-		})
-	}
-}
 
 
 //mensaje de error
@@ -57,7 +83,7 @@ personas.addEventListener("keyup", () => {
 	if(personas.value < 1) {
 
 		mensaje.style.display = "block";
-		personas.style.border = "2px solid red";		
+		personas.style.border = "2px solid red";
 	} else {
 
 		mensaje.style.display = "";
@@ -87,30 +113,11 @@ personas.addEventListener("keyup", () => {
 
 		})
 		
-	})
+	}) */
 
 //intento de resultado
 
-let resul = () => {
 
-	factura.addEventListener("input", () => {
-
-			if(personas.value > 0 && factura.value > 0) {
-
-		var resultadoPropina = parseFloat(factura*(ratNum/100)/Math.round(personas.value));
-		var resultadoTotal = parseFloat(Math.round(cuentaPersona+factura));
-
-		cuentaPersona.innerHTML = `$${resultadoPropina.toFixed(2)}`;
-		resultado.innerHTML = `$${resultadoTotal.toFixed(2)}`;
-		enabBotonReset();
-	}
-
-	})
-
-
-//activar el boton de RESET
-
-} */
 
 let enabBotonReset = () => {
 
