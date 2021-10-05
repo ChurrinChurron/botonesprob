@@ -7,80 +7,43 @@ let cuentaPersona = document.getElementById("amount-person");
 let resultado = document.getElementById("total-resul");
 let inputFacPer = document.querySelectorAll(".info");
 let num = 0;
+let proFact = 0;
+let resultadoPropina = 0;
+let resultadoTotal = 0;
 
-
-
-// lo de los botones :/
-const nunu = () => {
-
-	opcionesPropina.forEach(n => {
-
-		n.addEventListener("click", e => {
-
-			num = e.target.value;
-		})
-	})
-
-}
+//resultado
 
 	let result = () => {
 
 
-		var resultadoPropina = parseFloat(factura.value*(num/100)/Math.round(personas.value));
-		var resultadoTotal = parseFloat(Math.round(resultadoPropina+factura.value));
+		resultadoPropina = parseFloat(factura.value + num);
+		resultadoTotal = parseFloat(Math.round(resultadoPropina / personas.value));
 
 		cuentaPersona.innerHTML = `$${resultadoPropina.toFixed(2)}`;
 		resultado.innerHTML = `$${resultadoTotal.toFixed(2)}`;
 	}
- 
-
-	/*for(i=0;i<opcionesPropina.length;i++) {
-
-		opcionesPropina[i].addEventListener("click", () => {
-
-			switch(opcionesPropina) {
-
-				case opcionesPropina[0]:
-
-				num = 5
-				console.log(num);
-				break;
-
-				default:
-				console.log("nada");
-				//mas codigo 
-			}
-		})
-	}*/
-
-
 
 //función de los inputs de factura y personas
+
 for(i=0;i<inputFacPer.length;i++) {
 
 inputFacPer[i].addEventListener("input", () => { 
 
 if(personas.value > 0 && bill.value > 0) {
 
-
-	result();
 	nunu();
-	enabBotonReset();
 
 		}
-
 	})
-
 }
 
-
-
 //mensaje de error
+
 personas.addEventListener("keyup", () => {
 
 	const mensaje = document.getElementById("error");
 
-	if(personas.value < 1) {
+	if(personas.value < 1 || factura.value < 1) {
 
 		mensaje.style.display = "block";
 		personas.style.border = "2px solid red";
@@ -91,33 +54,7 @@ personas.addEventListener("keyup", () => {
 	}
 })
 
-
-
-//un intento de estilo en los botones
-
-/*
-	opcionesPropina.forEach((op, i) => {
-
-		op.addEventListener("click", () => {
-
-			var ratNum = Number(op.value);
-			var index = 0;
-			var pre = 0;
-			index = i;
-			opcionesPropina[pre].style.background = "hsl(172, 67%, 45%)";
-			opcionesPropina[pre].style.color = "hsl(183, 100%, 15%)";
-			opcionesPropina[index].style.background = "";
-			opcionesPropina[index].style.color = "";
-			resul();
-			pre=i;
-
-		})
-		
-	}) */
-
-//intento de resultado
-
-
+//habilitar botón de reset
 
 let enabBotonReset = () => {
 
@@ -126,7 +63,6 @@ let enabBotonReset = () => {
 	resetBoton.style.cursor = "pointer";
 	botonReset();
 }
-
 
 //resetear todo
 
@@ -143,5 +79,51 @@ resetBoton.addEventListener("click", () => {
 	resetBoton.style.cursor = "";
 	
 	})
+}
 
+//aplicar y remover estilo en los botones
+
+const removEst = () => {
+
+	opcionesPropina.forEach(r => {
+
+		r.style.background = "";
+		r.style.color = "";
+	})
+}
+
+const apliEst = () => {
+
+	opcionesPropina.forEach(s => {
+
+		s.addEventListener("click", () => {
+
+			removEst();
+
+			s.style.background = "hsl(172, 67%, 45%)";
+			s.style.color = "hsl(183, 100%, 15%)";
+			custom.style.background = "";
+			custom.style.color = "";
+
+		})
+	})
+}
+
+//valor de las propinas, y hasta que no se le de click a uno de ellos
+
+const nunu = () => {
+
+	opcionesPropina.forEach(n => {
+
+		n.addEventListener("click", e => {
+
+			num = e.target.value;
+			proFact = factura.value * (num/100);
+
+			apliEst();
+			result();
+			enabBotonReset();
+
+		})
+	})
 }
