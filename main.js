@@ -77,6 +77,7 @@ resetBoton.addEventListener("click", () => {
 	resetBoton.disabled = true;
 	resetBoton.style.opacity = "";
 	resetBoton.style.cursor = "";
+	removEst();
 	
 	})
 }
