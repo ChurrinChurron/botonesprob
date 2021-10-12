@@ -7,7 +7,6 @@ let cuentaPersona = document.getElementById("amount-person");
 let resultado = document.getElementById("total-resul");
 let inputFacPer = document.querySelectorAll(".info");
 let num = 0;
-let proFact = 0;
 let resultadoPropina = 0;
 let resultadoTotal = 0;
 
@@ -15,9 +14,10 @@ let resultadoTotal = 0;
 
 	let result = () => {
 
+		resultadoPropina = parseFloat((factura.value * num) / 100);
+		resultadoPropina = resultadoPropina / personas.value;
 
-		resultadoPropina = parseFloat(factura.value + num);
-		resultadoTotal = parseFloat(Math.round(resultadoPropina / personas.value));
+		resultadoTotal = (factura.value / personas.value) + resultadoPropina;
 
 		cuentaPersona.innerHTML = `$${resultadoPropina.toFixed(2)}`;
 		resultado.innerHTML = `$${resultadoTotal.toFixed(2)}`;
@@ -73,7 +73,7 @@ resetBoton.addEventListener("click", () => {
 	factura.value = "";
 	personas.value = "";
 	cuentaPersona.innerHTML = "$0.00";
-	resultado.textContent = "$0.00";
+	resultado.innerHTML = "$0.00";
 	resetBoton.disabled = true;
 	resetBoton.style.opacity = "";
 	resetBoton.style.cursor = "";
@@ -104,12 +104,11 @@ const apliEst = () => {
 			s.style.color = "hsl(183, 100%, 15%)";
 			custom.style.background = "";
 			custom.style.color = "";
-
 		})
 	})
 }
 
-//valor de las propinas, y hasta que no se le de click a uno de ellos
+//valor de las propinas
 
 const nunu = () => {
 
@@ -118,7 +117,6 @@ const nunu = () => {
 		n.addEventListener("click", e => {
 
 			num = e.target.value;
-			proFact = factura.value * (num/100);
 
 			apliEst();
 			result();
